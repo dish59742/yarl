@@ -4,3 +4,5 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN python3 --version
+
+RUN python3 setup.py bdist_wheel
