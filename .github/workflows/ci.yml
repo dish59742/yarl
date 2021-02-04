@@ -209,7 +209,10 @@ jobs:
         push: true
         build-args: |
           python3 --version
-    
+        tags: |
+          golangci/golangci-lint:${{ steps.prepare.outputs.full_tag_name }}
+          golangci/golangci-lint:${{ steps.prepare.outputs.full_major_tag }}
+          golangci/golangci-lint:${{ steps.prepare.outputs.latest_tag }}
     #- name: Setup Python 3.8
     #  uses: actions/setup-python@v2
      # with:
