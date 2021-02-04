@@ -5,4 +5,4 @@ RUN apt-get update && \
 
 RUN python3 --version
 
-RUN python3 setup.py bdist_wheel
+RUN ls
