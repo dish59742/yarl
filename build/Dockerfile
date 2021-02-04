@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y gcc && \
+    apt-get install --no-install-recommends -y gcc python3 python3-pip python3-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN pip install --no-cache-dir pip wheel 
+RUN pip3 install --no-cache-dir pip3 wheel 
 RUN python3 --version
