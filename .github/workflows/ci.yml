@@ -196,36 +196,36 @@ jobs:
         build-args: |
           python3 --version
     
-    - name: Setup Python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-    - name: Install cython
-      if: ${{ matrix.no-extensions == '' }} 
-      uses: py-actions/py-dependency-install@v2
-      with:
-        path: requirements/cython.txt
-    - name: Cythonize
-      if: ${{ matrix.no-extensions == '' }} 
-      run: |
-        make cythonize
-    - name: Install tools
-      run: |
-        docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
-          ${{ env.img }} ${{ env.py }} -m pip install -U setuptools wheel
-    - name: Make wheel
-      run: |
-        docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
-          ${{ env.img }} ${{ env.py }} setup.py bdist_wheel
-    - name: Repair wheel wheel
-      run: |
-        docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
-          ${{ env.img }} auditwheel repair dist/*.whl --wheel-dir wheelhouse/
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: dist
-        path: wheelhouse/*
+    #- name: Setup Python 3.8
+    #  uses: actions/setup-python@v2
+     # with:
+      #  python-version: 3.8
+    #- name: Install cython
+     # if: ${{ matrix.no-extensions == '' }} 
+      #uses: py-actions/py-dependency-install@v2
+      #with:
+       # path: requirements/cython.txt
+    #- name: Cythonize
+     # if: ${{ matrix.no-extensions == '' }} 
+      #run: |
+       # make cythonize
+    #- name: Install tools
+     # run: |
+      #  docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+       #   ${{ env.img }} ${{ env.py }} -m pip install -U setuptools wheel
+    #- name: Make wheel
+     # run: |
+      #  docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+       #   ${{ env.img }} ${{ env.py }} setup.py bdist_wheel
+    #- name: Repair wheel wheel
+     # run: |
+      #  docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+       #   ${{ env.img }} auditwheel repair dist/*.whl --wheel-dir wheelhouse/
+   # - name: Upload artifacts
+    #  uses: actions/upload-artifact@v2
+     # with:
+      #  name: dist
+       # path: wheelhouse/*
     
   build-binary:
     name: Binary wheels
@@ -271,7 +271,7 @@ jobs:
 
   deploy:
     name: Deploy
-    needs: [build-linux, build-binary, build-tarball]
+    needs: [build-binary, build-tarball]
     runs-on: ubuntu-latest
     steps:
     - name: Setup Python 3.8
