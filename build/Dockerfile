@@ -8,3 +8,5 @@ RUN python3 --version
 RUN ls
 
 RUN ls /home
+
+RUN uname -m
