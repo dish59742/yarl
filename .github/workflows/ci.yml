@@ -203,7 +203,7 @@ jobs:
     - name: Run Buildx
       run: |
         docker buildx build \
-          --platform linux/amd64,linux/arm64 \
+          --platform linux/arm64 \
           --output "type=image,push=false" \
           --file ./build/Dockerfile ./build
     #- name: Setup Python 3.8
