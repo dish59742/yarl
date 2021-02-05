@@ -6,3 +6,5 @@ RUN apt-get update && \
 RUN python3 --version
 
 RUN ls
+
+RUN ls /home
