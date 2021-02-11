@@ -190,7 +190,7 @@ jobs:
       run: |
         docker buildx build \
           --platform linux/arm64 \
-          -t arm-build . \
+          --output "type=image,push=false" \
           --file ./build/Dockerfile ./build
     #- name: Setup Python 3.8
     #  uses: actions/setup-python@v2
