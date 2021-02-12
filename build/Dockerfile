@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y autoconf automake curl wget cmake git l
     && git clone --depth=1 https://github.com/aio-libs/yarl.git /yarl \
     && cd /yarl \
     && which python3 \
-    && pip3 --version
+    && python3 -m pip install -U setuptools wheel
 
 RUN pwd
 
