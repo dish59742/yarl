@@ -175,10 +175,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Install python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
     - name: Set up QEMU
       id: qemu
       uses: docker/setup-qemu-action@v1
@@ -191,7 +187,7 @@ jobs:
       with:
           context: .
           file: ./build/Dockerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/arm64
           push: false
       #run: |
        # docker buildx build \
