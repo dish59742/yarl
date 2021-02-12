@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN uname -m
+RUN ls /opt/cross/
 
 RUN apt-get update
 
