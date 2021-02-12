@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y autoconf automake curl wget cmake git l
     && cd /yarl \
     && which python3 \
     && which pip3 \
-    && pip3 install -U wheel \
-    && python3 setup.py sdist bdist_wheel
+    && pip3 install -U wheel
+    #&& python3 setup.py sdist bdist_wheel
 
 RUN pwd
 
