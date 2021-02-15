@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y autoconf automake curl wget cmake git l
     && cd /yarl \
     && which python3 \
     && python3 -m pip install -U setuptools wheel \
-    && python3 -m pip install -r requirements/cython.txt \
-    && python3 setup.py bdist_wheel
+    && python3 -m pip install -r requirements/cython.txt
+    #&& python3 setup.py bdist_wheel
 
 #RUN cd yarl \
     #&& python3 -m pip install -r requirements/cython.txt
