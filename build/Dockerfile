@@ -11,6 +11,6 @@ RUN apt-get update && apt-get install -y autoconf automake curl wget cmake git l
 
 RUN ls
 
-RUN python3 setup.py bdist_wheel
+RUN cd yarl && python3 setup.py bdist_wheel
 
 RUN uname -m
